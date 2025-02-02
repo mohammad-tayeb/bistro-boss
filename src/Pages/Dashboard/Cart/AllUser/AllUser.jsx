@@ -74,14 +74,9 @@ const AllUser = () => {
     //delete function
     return (
         <>
-            <div className="md:mx-32 mx-5 mt-20 flex md:flex-row flex-col md:space-y-0 space-y-2 justify-between items-center">
-                <h2 className="md:text-2xl font-bold text-black">Total User: {users.length}</h2>
-                {/* <h2 className="md:text-2xl font-bold text-black">Total Price: ${totalPrice.toFixed(2)}</h2> */}
-                {/* <button className="btn btn-sm bg-yellow-500 text-white border-0">Pay</button> */}
-            </div>
-
+            <h2 className="mt-10 ms-32 md:text-2xl font-bold text-black">Total User: {users.length}</h2>
             {/* Data Table */}
-            <div className="overflow-x-auto md:mx-32 mt-3 text-black mx-2  mb-10">
+            <div className="overflow-x-auto md:mx-32 mt-3 text-black mx-2 mb-10">
                 {users.length === 0 ? (
                     <div className="text-center py-5 font-semibold text-gray-500">
                         No User Found!
@@ -107,10 +102,10 @@ const AllUser = () => {
                                     <td>
                                         {
                                             user.role === 'admin' ? <>
-                                                <p className="text-yellow-600 font-bold">Admin</p>
+                                                <p className="text-yellow-600 font-bold text-center">Admin</p>
                                             </> : <>
                                                 <button
-                                                    className="btn btn-ghost btn-sm bg-yellow-600"
+                                                    className="text-xs font-mono btn btn-ghost bg-yellow-600"
                                                     onClick={() => handleMakeAdmin(user._id)}
                                                 >
                                                     Make Admin

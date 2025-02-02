@@ -3,6 +3,7 @@ import useCarts from "../../../Hooks/useCarts";
 import foodicon from '../../../assets/home/foodicon.jpg';
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const [cart, refetch] = useCarts();
@@ -41,7 +42,9 @@ const Cart = () => {
             <div className="md:mx-32 mx-5 mt-20 flex md:flex-row flex-col md:space-y-0 space-y-2 justify-between items-center">
                 <h2 className="md:text-2xl font-bold text-black">Total Order: {cart.length}</h2>
                 <h2 className="md:text-2xl font-bold text-black">Total Price: ${totalPrice.toFixed(2)}</h2>
-                <button className="btn btn-sm bg-yellow-500 text-white border-0">Pay</button>
+               {
+                cart.length != 0?  <Link to="/dashboard/payment" className="btn btn-sm bg-yellow-500 text-white border-0">Pay</Link> :  <Link to="/shop" className="btn btn-sm bg-yellow-500 text-white border-0">Add Items</Link>
+               }
             </div>
 
             {/* Data Table */}
