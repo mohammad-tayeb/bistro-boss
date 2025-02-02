@@ -7,21 +7,14 @@ import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const ManageItem = () => {
     const { setLoading } = UseAuth()
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosPublic()
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/menu')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setMenuItem(data)
-    //             setLoading(false)
-    //         })
-    // }, [])
       //tanstack query
-      const { data: menuItem = [], refetch } = useQuery({
+      const { data: menuItem = [], refetch, isPending: loading } = useQuery({
         queryKey: ['menuItem'],
         queryFn: async () => {
             const res = await axiosPublic.get('/menu')
@@ -97,7 +90,7 @@ const ManageItem = () => {
                                             className="btn btn-ghost btn-sm bg-yellow-600"
                                         // onClick={() => handleMakeAdmin(user._id)}
                                         >
-                                            <FaEdit className=""></FaEdit>
+                                           <Link to={`/dashboard/updateItem/${item._id}`}> <FaEdit className=""></FaEdit></Link>
                                         </button>
                                     </td>
                                     <td>
