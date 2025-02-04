@@ -9,7 +9,7 @@ export default [
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 'latest', // Corrected (removed unnecessary quotes)
       globals: globals.browser,
       parserOptions: {
         ecmaVersion: 'latest',
@@ -33,9 +33,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      "rules": {
-        "react/forbid-prop-types": 0
-      }
+      'react/forbid-prop-types': 0
     },
   },
 ]

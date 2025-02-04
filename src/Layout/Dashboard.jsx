@@ -10,7 +10,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/* side bar */}
-            <div className="w-56 min-h-screen md:me-10 bg-orange-400">
+            <div className="w-56 min-h-screen bg-orange-400">
                 <div className="flex flex-col items-center text-black -mb-5 mt-3">
                     <Link to="/" className="mb-2 text-xl font-bold">Bistro Boss</Link>
                     <Link to="/" className="text-sm font-semibold -mt-4 spaced-text ms-1 mb-1">
@@ -45,7 +45,7 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/reservation"><FaCalendar /> Reservation</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/paymentHistory"><FaMoneyBill /> Payment History</NavLink>
+                                    <NavLink to="/dashboard/paymentHistory"><FaMoneyBill />Payment History</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/cart"><FaShoppingCart /> My Cart</NavLink>
