@@ -3,10 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCarts from "../../../Hooks/useCarts";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [cart] = useCarts()
+    const [isAdmin] = useAdmin()
     const navLinks = (
         <>
             <li>
@@ -20,14 +22,26 @@ const Navbar = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink
-                    className={({ isActive }) =>
-                        isActive ? "font-bold text-white bg-yellow-500" : "text-white"
-                    }
-                    to="/dashboard/cart"
-                >
-                    DASHBOARD
-                </NavLink>
+                {
+                    user && isAdmin && <NavLink
+                        className={({ isActive }) =>
+                            isActive ? "font-bold text-white bg-yellow-500" : "text-white"
+                        }
+                        to="/dashboard/adminHome"
+                    >
+                        ADMIN DASHBOARD
+                    </NavLink>
+                }
+                {
+                    user && !isAdmin && <NavLink
+                        className={({ isActive }) =>
+                            isActive ? "font-bold text-white bg-yellow-500" : "text-white"
+                        }
+                        to="/dashboard/userHome"
+                    >
+                        USER DASHBOARD
+                    </NavLink>
+                }
             </li>
             <li>
                 <NavLink

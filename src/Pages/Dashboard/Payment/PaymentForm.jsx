@@ -84,7 +84,7 @@ const PaymentForm = () => {
                     price: totalPrice,
                     transactionId: paymentIntent.id,
                     date: new Date().toLocaleString(), //TODO:have to convert the date to utc
-                    cartIds: cart.map(item => item._id),
+                    cartIds: cart.map(item => item._id), //storeing an array in databae
                     menuItemIds: cart.map(item => item.menuId),
                     status: 'pending'
                 }
